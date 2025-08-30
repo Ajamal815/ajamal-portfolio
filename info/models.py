@@ -1,5 +1,5 @@
 from django.db import models
-from cloudinary_storage.storage import MediaCloudinaryStorage, RawMediaCloudinaryStorage
+from cloudinary_storage.storage import MediaCloudinaryStorage
 
 # Create your models here.
 class Info(models.Model):
@@ -12,7 +12,7 @@ class Info(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     image = models.ImageField(upload_to='images', null=True, blank=True, storage=MediaCloudinaryStorage)
     about_image = models.ImageField(upload_to='images', null=True, blank=True, storage=MediaCloudinaryStorage)
-    resume = models.FileField(upload_to='resumes', null=True, blank=True, storage=RawMediaCloudinaryStorage)
+    resume = models.FileField(upload_to='resumes', null=True, blank=True)
     linkedin = models.URLField(null=True, blank=True)
 
     def __str__(self):
