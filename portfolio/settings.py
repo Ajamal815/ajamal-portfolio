@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'info',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -72,6 +74,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'portfolio.wsgi.application'
 
+DEFAULT_FILE_STORAGE = "cloudinary_storage.storage.MediaCloudinaryStorage"
+
+CLOUDINARY_STORAGE = {
+    "CLOUD_NAME": "dvkajpjil",
+    "API_KEY": "736283343276469",
+    "API_SECRET": "UTCgftmYXf3aWJxb8kuqfFOTPBk",
+}
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
