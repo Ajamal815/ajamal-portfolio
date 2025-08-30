@@ -1,4 +1,5 @@
 from django.db import models
+from cloudinary_storage.storage import MediaCloudinaryStorage
 
 # Create your models here.
 class Info(models.Model):
@@ -9,9 +10,9 @@ class Info(models.Model):
     message = models.TextField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    image = models.ImageField(upload_to='images', null=True, blank=True)
-    about_image = models.ImageField(upload_to='images', null=True, blank=True)
-    resume = models.FileField(upload_to='resumes', null=True, blank=True)
+    image = models.ImageField(upload_to='images', null=True, blank=True, storage=MediaCloudinaryStorage)
+    about_image = models.ImageField(upload_to='images', null=True, blank=True, storage=MediaCloudinaryStorage)
+    resume = models.FileField(upload_to='resumes', null=True, blank=True, storage=MediaCloudinaryStorage)
     linkedin = models.URLField(null=True, blank=True)
 
     def __str__(self):
@@ -39,7 +40,7 @@ class Project(models.Model):
     description = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    image = models.ImageField(upload_to='images')
+    image = models.ImageField(upload_to='images', storage=MediaCloudinaryStorage)
     url = models.URLField(null=True, blank=True)
     role = models.CharField(max_length=255, null=True, blank=True)
 
