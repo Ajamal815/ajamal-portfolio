@@ -42,7 +42,7 @@ class Project(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     image = models.ImageField(upload_to='images', storage=MediaCloudinaryStorage)
     url = models.URLField(null=True, blank=True)
-    role = models.CharField(max_length=255, null=True, blank=True)
+    role = models.TextField(null=True, blank=True)
 
     def __str__(self):
         return self.name
