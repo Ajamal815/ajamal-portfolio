@@ -85,14 +85,17 @@ CLOUDINARY_STORAGE = {
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-DATABASE_URL = "postgresql://ajamal:RchmuhkXAJmZFb7n5uagabFvzbMdZX5F@dpg-d2pgi8je5dus73b44sh0-a/ajamal_info"
 
 DATABASES = {
-    "default": dj_database_url.config(
-        default=os.getenv("DATABASE_URL")  # will read from environment variable
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ajamal_info',
+        'USER': 'ajamal',
+        'PASSWORD': 'RchmuhkXAJmZFb7n5uagabFvzbMdZX5F',
+        'HOST': "dpg-d2pgi8je5dus73b44sh0-a",  # Empty for localhost through domain sockets or'127.0.0.1' for localhost through TCP.
+        'PORT': "5432"
+   },
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
